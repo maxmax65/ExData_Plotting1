@@ -17,12 +17,14 @@ setnames(consumptions, colnames(fread(dataFile, nrows=0)))
 png(filename = "plot3.png",width = 480, height = 480, units = "px", bg = "transparent", pointsize=12,
 	type = "cairo-png")
 
+## sets the language to have week-days names in English
+Sys.setlocale("LC_TIME", "en_US.UTF-8")
+
 ## prepares the plotting area
 par(pin=c(4.8,4.8)) ## sets the plotting area to a square of 4.8"x4.8"
 par(ps=12) ## sets the font size
 par(mar=c(5,4,4,2))
 par(mgp=c(3,1,0)) ## sets the default margins line for the axis title, axis labels and lines
-Sys.setenv(LANG = "en_US.UTF-8")  ## sets the language to have week-days names in English
 
 ## produces the objects of class POSIXct associated to Date and Time, to use as x-coordinate
 x_coord<-as.POSIXct(strptime(paste(consumptions$Date, consumptions$Time),"%d/%m/%Y %H:%M:%S"))

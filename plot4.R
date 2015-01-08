@@ -18,7 +18,7 @@ png(filename = "plot4.png",width = 480, height = 480, units = "px", bg = "transp
 	type = "cairo-png")
 
 ## sets the language to have week-days names in English
-Sys.setenv(LANG = "en_US.UTF-8")
+Sys.setlocale("LC_TIME", "en_US.UTF-8")
 
 ## prepares the plotting area
 par(mfrow=c(2,2)) ## sets the 2x2 schema for the 4 plots
